@@ -9,24 +9,33 @@ result: str = ("")
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
-
-while guess != secret:
-    if len(guess) == 6 and guess != secret:
-        while guess_idx < len(guess):
-            if guess[guess_idx] == secret[guess_idx]:
-                result += GREEN_BOX
-            elif guess[guess_idx] == secret[0] or secret[1] or secret[2] or secret[3] or secret[4] or secret[5]:
+while len(guess) != len(secret):
+    guess: str = input("That was not 6 letters! Try again: ")
+if len(guess) == len(secret):
+    while guess_idx < len(guess):
+        if guess[guess_idx] == secret[guess_idx]:
+            result += GREEN_BOX
+        else:
+            other_matches: bool = False 
+            secret_idx_check: int = 0
+            while other_matches == False and secret_idx_check < len(secret):
+                if secret[secret_idx_check] == guess[guess_idx]:
+                    other_matches: bool = True
+                else:
+                    secret_idx_check += 1
+            if other_matches == True:
                 result += YELLOW_BOX
             else:
                 result+= WHITE_BOX
-            guess_idx += 1
-        print(result)
+        guess_idx += 1
+    print(result)
+    if guess == secret:
+        print("Woo! You got it!")
+    else:
         print("Not quite. Play again soon!")
-        exit()
-    else: 
-        guess: str = input("That was not 6 letters! Try again: ")
-if guess == secret:
-    print("Woo! You got it!")
+    exit()
+
+   
 
 
 

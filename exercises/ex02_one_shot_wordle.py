@@ -23,10 +23,10 @@ if len(guess) == len(secret):
                     other_matches: bool = True
                 else:
                     secret_idx_check += 1
-            if other_matches is True:
-                result += YELLOW_BOX
-            else:
-                result += WHITE_BOX
+                if other_matches is True:
+                    result += YELLOW_BOX
+                else:
+                    result += WHITE_BOX
         guess_idx += 1
     print(result)
     if guess == secret:

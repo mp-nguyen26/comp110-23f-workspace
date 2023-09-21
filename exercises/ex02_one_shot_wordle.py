@@ -1,6 +1,6 @@
-"""Wordle but with only one try ;)"""
+"""Wordle but with only one try ;)!"""
 
-__author__ = 730574011
+__author__ = "730574011"
 
 secret: str = ("python")
 guess: str = input("What is your 6-letter guess? ")
@@ -18,15 +18,15 @@ if len(guess) == len(secret):
         else:
             other_matches: bool = False 
             secret_idx_check: int = 0
-            while other_matches == False and secret_idx_check < len(secret):
+            while other_matches is False and secret_idx_check < len(secret):
                 if secret[secret_idx_check] == guess[guess_idx]:
                     other_matches: bool = True
                 else:
                     secret_idx_check += 1
-            if other_matches == True:
+            if other_matches is True:
                 result += YELLOW_BOX
             else:
-                result+= WHITE_BOX
+                result += WHITE_BOX
         guess_idx += 1
     print(result)
     if guess == secret:
@@ -34,12 +34,3 @@ if len(guess) == len(secret):
     else:
         print("Not quite. Play again soon!")
     exit()
-
-   
-
-
-
-
-   
-
-

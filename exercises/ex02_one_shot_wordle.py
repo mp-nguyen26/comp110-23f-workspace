@@ -2,34 +2,39 @@
 
 __author__ = "730574011"
 
-secret: str = "python"
-guess: str = input("What is your 6-letter guess? ")
-guess_idx: int = 0
-result: str = ("")
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
+
+secret: str = "python"
+guess: str = input(f"What is your {len(secret)}-letter guess? ")
+current_guess_letter: int = 0
+result: str = ("")
+
 while len(guess) != len(secret):
-    guess: str = input("That was not 6 letters! Try again: ")
-while guess_idx < len(guess):
-    if guess[guess_idx] == secret[guess_idx]:
+    guess = input(f"That was not {len(secret)} letters! Try again: ")
+
+while current_guess_letter < len(guess):
+    if guess[current_guess_letter] == secret[current_guess_letter]:
         result += GREEN_BOX
     else:
-        other_matches: bool = False 
-        secret_idx_check: int = 0
-        while other_matches is False and secret_idx_check < len(secret):
-            if secret[secret_idx_check] == guess[guess_idx]:
-                other_matches: bool = True
-            else:
-                secret_idx_check += 1
-        if other_matches == True:
+        letter_exists_in_secret: bool = False 
+        current_secret_letter: int = 0
+
+        while letter_exists_in_secret is False and current_secret_letter < len(secret):
+            if guess[current_guess_letter] == secret[current_secret_letter]:
+                letter_exists_in_secret = True
+            current_secret_letter += 1
+        if letter_exists_in_secret is True:
             result += YELLOW_BOX
         else:
             result += WHITE_BOX
-    guess_idx += 1
+
+    current_guess_letter += 1
+
 print(result)
+
 if guess == secret:
     print("Woo! You got it!")
 else:
     print("Not quite. Play again soon!")
-exit()

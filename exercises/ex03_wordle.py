@@ -2,6 +2,7 @@
 
 __author__ = "730574011"
 
+
 def contains_char(word: str, letter: str) -> bool:
     """Returns true if letter is found in any index of word"""
     assert len(letter) == 1
@@ -21,6 +22,8 @@ def contains_char(word: str, letter: str) -> bool:
             if letter_exists_in_word is False:
                 return False
         letter_idx += 1
+
+
 def emojified(guess: str, secret: str) -> str:
     """Returns green, yellow, or red squares."""
     assert len(guess) == len(secret)
@@ -38,12 +41,16 @@ def emojified(guess: str, secret: str) -> str:
             result += WHITE_BOX
         letter_check += 1
     return result
+
+
 def input_guess(expected_length: int) -> str:
     """Checks for correct number of characters."""
     user_guess: str = input(f"Enter a {expected_length} character word: ")
     while len(user_guess) != expected_length:
         user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
     return user_guess
+
+
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     turn_number: int = 1
@@ -56,9 +63,10 @@ def main() -> None:
         print(emojified(player_guess, game_secret_word))
         if player_guess == game_secret_word:
             print(f"You won in {turn_number}/6 turns!")
+            turn_number += 7
         else:
             turn_number += 1
-    if turn_number > 6:
+    if turn_number == 7:
         print("X/6 - Sorry, try again tomorrow!")
 if __name__ == "__main__":
     main()

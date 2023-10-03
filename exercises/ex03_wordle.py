@@ -1,6 +1,7 @@
 """Wordle for realsies."""
 
 __author__ = "730574011"
+
 def contains_char(word: str, letter: str) -> bool:
     """Returns true if letter is found in any index of word"""
     assert len(letter) == 1
@@ -20,7 +21,6 @@ def contains_char(word: str, letter: str) -> bool:
             if letter_exists_in_word is False:
                 return False
         letter_idx += 1
-
 def emojified(guess: str, secret: str) -> str:
     """Returns green, yellow, or red squares."""
     assert len(guess) == len(secret)
@@ -38,15 +38,12 @@ def emojified(guess: str, secret: str) -> str:
             result += WHITE_BOX
         letter_check += 1
     return result
-        
 def input_guess(expected_length: int) -> str:
     """Checks for correct number of characters."""
     user_guess: str = input(f"Enter a {expected_length} character word: ")
     while len(user_guess) != expected_length:
         user_guess = input(f"That wasn't {expected_length} chars! Try again: ")
     return user_guess
-
-
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     turn_number: int = 1
@@ -59,60 +56,9 @@ def main() -> None:
         print(emojified(player_guess, game_secret_word))
         if player_guess == game_secret_word:
             print(f"You won in {turn_number}/6 turns!")
-            
         else:
             turn_number += 1
-
-        
-    
-
-
-#
-# if input
-#     guess: str = input(f"What is your {}-letter guess? ")
-# current_guess_letter: int = 0
-# result: str = ("")
-
-# while len(guess) != len(secret):
-#     guess = input(f"That was not {len(secret)} letters! Try again: ")
-
-
-
-
-
-# WHITE_BOX: str = "\U00002B1C"
-# GREEN_BOX: str = "\U0001F7E9"
-# YELLOW_BOX: str = "\U0001F7E8"
-
-# secret: str = "python"
-# guess: str = input(f"What is your {len(secret)}-letter guess? ")
-# current_guess_letter: int = 0
-# result: str = ("")
-
-# while len(guess) != len(secret):
-#     guess = input(f"That was not {len(secret)} letters! Try again: ")
-
-# while current_guess_letter < len(guess):
-#     if guess[current_guess_letter] == secret[current_guess_letter]:
-#         result += GREEN_BOX
-#     else:
-#         letter_exists_in_secret: bool = False 
-#         current_secret_letter: int = 0
-
-#         while letter_exists_in_secret is False and current_secret_letter < len(secret):
-#             if guess[current_guess_letter] == secret[current_secret_letter]:
-#                 letter_exists_in_secret = True
-#             current_secret_letter += 1
-#         if letter_exists_in_secret is True:
-#             result += YELLOW_BOX
-#         else:
-#             result += WHITE_BOX
-
-#     current_guess_letter += 1
-
-# print(result)
-
-# if guess == secret:
-#     print("Woo! You got it!")
-# else:
-#     print("Not quite. Play again soon!")
+    if turn_number > 6:
+        print("X/6 - Sorry, try again tomorrow!")
+if __name__ == "__main__":
+    main()

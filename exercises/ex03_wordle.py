@@ -1,11 +1,6 @@
 """Wordle for realsies."""
 
 __author__ = "730574011"
-
-WHITE_BOX: str = "\U00002B1C"
-GREEN_BOX: str = "\U0001F7E9"
-YELLOW_BOX: str = "\U0001F7E8"
-
 def contains_char(word: str, letter: str) -> bool:
     """Returns true if letter is found in any index of word"""
     assert len(letter) == 1
@@ -30,16 +25,18 @@ def emojified(guess: str, secret: str) -> str:
     """Returns green, yellow, or red squares."""
     assert len(guess) == len(secret)
     letter_check: int = 0
-    contains_char(secret, guess[letter_check])
+    WHITE_BOX: str = "\U00002B1C"
+    GREEN_BOX: str = "\U0001F7E9"
+    YELLOW_BOX: str = "\U0001F7E8"
     result: str = ""
-    # while letter_check < len(secret):
-    if False:
-        result         
-#         if True and guess[letter_check] == secret[letter_check]:
-#             result += GREEN_BOX
-#         else:
-#             result += YELLOW_BOX
-#         letter_check += 1
+    while letter_check < len(secret):     
+        if contains_char(secret, guess[letter_check]) is True and guess[letter_check] == secret[letter_check]:
+            result += GREEN_BOX
+        if contains_char(secret, guess[letter_check]) is True and guess[letter_check] != secret[letter_check]:
+            result += YELLOW_BOX 
+        if contains_char(secret, guess[letter_check]) is False:  
+            result += WHITE_BOX
+        letter_check += 1
     return result
         
         

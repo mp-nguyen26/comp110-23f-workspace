@@ -4,12 +4,13 @@ __author__ = "730574011"
 
 
 def contains_char(word: str, letter: str) -> bool:
-    """Returns true if letter is found in any index of word"""
+    """Returns true if letter is found in any index of word."""
     assert len(letter) == 1
     letter_idx: int = 0
     while letter_idx < len(word):
+        letter_in_word: bool = False
         if letter == word[letter_idx]:
-            return True
+            letter_in_word = True
         else:
             letter_exists_in_word: bool = False 
             current_secret_letter: int = 0
@@ -18,14 +19,15 @@ def contains_char(word: str, letter: str) -> bool:
                     letter_exists_in_word = True
                 current_secret_letter += 1
             if letter_exists_in_word is True:
-                return True
+                letter_in_word = True
             if letter_exists_in_word is False:
-                return False
+                letter_in_word = False
         letter_idx += 1
+    return letter_in_word
 
 
 def emojified(guess: str, secret: str) -> str:
-    """Returns green, yellow, or red squares."""
+    """Returns green, yellow, or red squares based on position of letter."""
     assert len(guess) == len(secret)
     letter_check: int = 0
     WHITE_BOX: str = "\U00002B1C"
@@ -68,5 +70,7 @@ def main() -> None:
             turn_number += 1
     if turn_number == 7:
         print("X/6 - Sorry, try again tomorrow!")
+
+
 if __name__ == "__main__":
     main()

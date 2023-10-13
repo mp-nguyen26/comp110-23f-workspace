@@ -56,7 +56,7 @@ def input_guess(expected_length: int) -> str:
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     turn_number: int = 1
-    game_secret_word: str = "codes"
+    game_secret_word: str = "space"
     result: str = ""
     GREEN_BOX: str = "\U0001F7E9"
     while turn_number <= 6 and result != f"{GREEN_BOX}" * len(game_secret_word):

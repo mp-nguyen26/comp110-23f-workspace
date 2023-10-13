@@ -3,15 +3,16 @@
 __author__ = "730574011"
 
 
-def all(int_list: list[int], int: int) -> bool:
-   if len(int_list) == 0:
-    return False
-   else:
+def all(int_list: list[int], the_int: int) -> bool:
+    """Checks if all ints of a list matches a specified int."""
+    if len(int_list) == 0:
+        return False
+    else:
         num_of_matches: int = 0
         list_idx: int = 0
         while list_idx < len(int_list):
-            if int_list[list_idx] == int:
-                um_of_matches += 1
+            if int_list[list_idx] == the_int:
+                num_of_matches += 1
             list_idx += 1
         if num_of_matches == len(int_list):
             return True
@@ -20,6 +21,7 @@ def all(int_list: list[int], int: int) -> bool:
 
 
 def max(int_list: list[int]) -> int:
+    """Returns the max int in a list."""
     if len(int_list) == 0:
         raise ValueError("max() arg is an empty List")
     else:
@@ -33,6 +35,7 @@ def max(int_list: list[int]) -> int:
     
 
 def is_equal(int_list_1: list[int], int_list_2: list[int]) -> bool:
+    """Checks if two int lists are identical."""
     if len(int_list_1) != len(int_list_2):
         return False
     else:

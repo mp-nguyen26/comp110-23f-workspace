@@ -4,16 +4,19 @@ __author__ = "730574011"
 
 
 def all(int_list: list[int], int: int) -> bool:
-    num_of_matches: int = 0
-    list_idx: int = 0
-    while list_idx < len(int_list):
-        if int_list[list_idx] == int:
-            num_of_matches += 1
-        list_idx += 1
-    if num_of_matches == len(int_list):
-        return True
-    else:
-        return False
+   if len(int_list) == 0:
+    return False
+   else:
+        num_of_matches: int = 0
+        list_idx: int = 0
+        while list_idx < len(int_list):
+            if int_list[list_idx] == int:
+                um_of_matches += 1
+            list_idx += 1
+        if num_of_matches == len(int_list):
+            return True
+        else:
+            return False
 
 
 def max(int_list: list[int]) -> int:

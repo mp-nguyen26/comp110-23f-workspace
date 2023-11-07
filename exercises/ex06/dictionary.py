@@ -20,7 +20,12 @@ def invert(inp_dict: dict[str,str]) -> dict[str,str]:
         raise KeyError("Womp Womp...The resulting dictionary has duplicate key(s)!")
     
 
-def favorite_color(inp_dict: dict[str,str]) -. str:
+def favorite_color(inp_dict: dict[str,str]) -> str:
+    list_of_colors = []
+    for keys in inp_dict:
+        list_of_colors.append(inp_dict[keys])
+    for colors in list_of_colors
+
 
 
 

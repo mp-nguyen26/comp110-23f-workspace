@@ -1,4 +1,4 @@
-"""yeah"""
+"""Testing methods from point.py."""
 
 from lessons.CQ07.point import Point
 

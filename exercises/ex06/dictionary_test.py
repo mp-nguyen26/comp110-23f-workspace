@@ -10,7 +10,6 @@ from exercises.ex06.dictionary import alphabetizer
 from exercises.ex06.dictionary import update_attendance
 
 
-
 def test_number_strings() -> None:
     """Tests when the input dictionary has numbers as strings."""
     test_dict: dict[str, str] = {"a": "1", "b": "2", "c": "3"}
@@ -46,7 +45,7 @@ def test_not_colors() -> None:
     assert favorite_color(test_dict) == "cat"
 
 
-def test_number_strings() -> None:
+def test_number_strings_count() -> None:
     """Tests when the input list has numbers as strings."""
     test_dict: list[str] = ["1", "2", "2", "3", "3", "3"]
     assert count(test_dict) == {"1": 1, "2": 2, "3": 3}

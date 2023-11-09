@@ -57,6 +57,7 @@ def test_strings_different_length() -> None:
     test_list: list[str] = ["a", "ab", "ab", "abc", "abc", "abc"]
     assert count(test_list) == {"a": 1, "ab": 2, "abc": 3}
 
+
 def test_list_int() -> None:
     """Tests when the input list has integers."""
     test_list: list[str] = [1, 2, 2, 3, 3, 3]

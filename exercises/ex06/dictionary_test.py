@@ -4,6 +4,11 @@ __author__ = "730574011"
 
 
 from exercises.ex06.dictionary import invert
+from exercises.ex06.dictionary import favorite_color
+from exercises.ex06.dictionary import count
+from exercises.ex06.dictionary import alphabetizer
+from exercises.ex06.dictionary import update_attendance
+
 
 
 def test_number_strings() -> None:
@@ -23,9 +28,6 @@ def test_empty_dict() -> None:
     assert invert({}) == {}
 
 
-from exercises.ex06.dictionary import favorite_color
-
-
 def test_all_same_color() -> None:
     """Tests when the input dictionary has values that are all the same color."""
     test_dict: dict[str, str] = {"Michael": "purple", "Mike": "purple", "Michelle": "purple"}
@@ -38,12 +40,10 @@ def test_all_different_colors_appear_once() -> None:
     assert favorite_color(test_dict) == "purple"
 
 
-def test_empty_dict() -> None:
-    """Tests when the input dictionary is empty."""
-    assert invert({}) == {}
-
-
-from exercises.ex06.dictionary import count
+def test_not_colors() -> None:
+    """Tests when the input dictionary has values that are not colors."""
+    test_dict: dict[str, str] = {"Michael": "cat", "Mike": "cat", "Michelle": "dog"}
+    assert favorite_color(test_dict) == "cat"
 
 
 def test_number_strings() -> None:
@@ -57,12 +57,10 @@ def test_strings_different_length() -> None:
     test_list: list[str] = ["a", "ab", "ab", "abc", "abc", "abc"]
     assert count(test_list) == {"a": 1, "ab": 2, "abc": 3}
 
-def test_empty_list() -> None:
-    """Tests when the input list is empty."""
-    assert count([]) == {}
-
-
-from exercises.ex06.dictionary import alphabetizer
+def test_list_int() -> None:
+    """Tests when the input list has integers."""
+    test_list: list[str] = [1, 2, 2, 3, 3, 3]
+    assert count(test_list) == {}
 
 
 def test_capital_first_letter() -> None:
@@ -80,9 +78,6 @@ def test_same_first_letter() -> None:
 def test_empty_list() -> None:
     """Tests when the input list is empty."""
     assert alphabetizer([]) == {}
-
-
-from exercises.ex06.dictionary import update_attendance
 
 
 def test_one_student() -> None:

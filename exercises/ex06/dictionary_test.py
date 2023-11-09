@@ -85,6 +85,19 @@ def test_empty_list() -> None:
 from exercises.ex06.dictionary import update_attendance
 
 
-def test_same_student() -> None:
-    """Tests when the there is only one student name."""
-    input_dict: dict[str, list[str]] = {"Monday"}
+def test_one_student() -> None:
+    """Tests when the original dictionary has only one student for each day."""
+    input_dict: dict[str, list[str]] = {"Monday": ["Michael"], "Tuesday": ["Mike"], "Wednesday": ["Michelle"]}
+    assert update_attendance(input_dict, "Monday", "Mai") == {"Monday": ["Michael", "Mai"], "Tuesday": ["Mike"], "Wednesday": ["Michelle"]}
+
+
+def test_new_day() -> None:
+    """Tests when a new day is updated to the original attendance."""
+    input_dict: dict[str, list[str]] = {"Monday": ["Michael"], "Tuesday": ["Mike"]}
+    assert update_attendance(input_dict, "Wednesday", "Mai") == {"Monday": ["Michael"], "Tuesday": ["Mike"], "Wednesday": ["Mai"]}
+
+
+def test_empty_update() -> None:
+    """Tests when the update has no new students or days."""
+    input_dict: dict[str, list[str]] = {"Monday": ["Michael", "Mai"], "Tuesday": ["Mike"]}
+    assert update_attendance(input_dict, "", "") == {"Monday": ["Michael", "Mai"], "Tuesday": ["Mike"]}

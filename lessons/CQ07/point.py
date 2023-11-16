@@ -24,20 +24,17 @@ class Point:
         new_point: Point = Point(self.x * factor, self.y * factor)
         return new_point
     
-
     def __str__(self) -> str:
         """Makes printed point readable."""
         output: str = f"x: {self.x}; y: {self.y}"
         return output
     
-
-    def __mul__(self, factor: int |float):
+    def __mul__(self, factor: int | float) -> Point:
         """Another way to implement scale using mult operator overload."""
         new_point: Point = Point(self.x * factor, self.y * factor)
         return new_point
     
-
-    def __add__(self, factor: int | float):
+    def __add__(self, factor: int | float) -> Point:
         """Addition operator overload."""
         new_point: Point = Point(self.x + factor, self.y + factor)
         return new_point
